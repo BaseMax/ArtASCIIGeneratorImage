@@ -1,10 +1,9 @@
 import PIL
 
 # Variables
-# # ascii characters used to build the output text
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
-new_width = 100
-image_path = "test.jpg"
+NEW_WIDTH = 100
+IMAGE_PATH = "test.jpg"
 
 # Functions
 def resize_image(image, to_width=100):
@@ -22,7 +21,7 @@ def pixels_to_ascii(image):
 
 # Startup
 try:
-    image = PIL.Image.open(image_path)
+    image = PIL.Image.open(IMAGE_PATH)
 
     # convert
     image = resize_image(image)
@@ -31,7 +30,7 @@ try:
     data = pixels_to_ascii(image)
     # formatting
     pixel_count = len(data)
-    ascii_image = "\n".join([data[index:(index+new_width)] for index in range(0, pixel_count, new_width)])
+    ascii_image = "\n".join([data[index:(index+NEW_WIDTH)] for index in range(0, pixel_count, NEW_WIDTH)])
 
     print(ascii_image)
 
