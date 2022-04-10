@@ -1,9 +1,10 @@
 import PIL
+import matplotlib
 
 # Variables
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 NEW_WIDTH = 100
-IMAGE_PATH = "test.jpg"
+IMAGE_PATH = "input.png"
 
 # Functions
 def resize_image(image, to_width=100):
@@ -37,6 +38,7 @@ try:
     # save result to "ascii_image.txt"
     with open("output.txt", "w") as f:
         f.write(ascii_image)
-except:
-    print(path, " is not a valid path of an image.")
+except Exception as e:
+    print(e)
+    print(IMAGE_PATH, " is not a valid path of an image.")
 
