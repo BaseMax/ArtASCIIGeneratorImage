@@ -3,14 +3,14 @@ import matplotlib
 
 # Variables
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
-NEW_WIDTH = 100
+NEW_WIDTH = 50 # Change the size
 IMAGE_PATH = "input.png"
 
 # Functions
 def resize_image(image, to_width=100):
     width, height = image.size
     ratio = height / width
-    to_height = int(to_width * ratio)
+    to_height = int(to_width * ratio) - 20 # Change the -20 to change the padding
     resized_image = image.resize((to_width, to_height))
     return resized_image
 
@@ -25,7 +25,7 @@ try:
     image = PIL.Image.open(IMAGE_PATH)
 
     # convert
-    image = resize_image(image)
+    image = resize_image(image, NEW_WIDTH)
     image = image.convert("L")
 
     data = pixels_to_ascii(image)
